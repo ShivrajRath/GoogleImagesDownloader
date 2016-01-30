@@ -3,7 +3,7 @@ var api = (function() {
   return {
     imageQueryParam: 'imgurl',
     defaultDownloadCount: 5,
-    urls: {},
+    urlCollection: [],
 
     /**
      * Pick a parameter from a url
@@ -24,21 +24,29 @@ var api = (function() {
     },
 
     /**
+     * Returns the base64 image from an anchor tag
+     */
+    getBase64Image: function(anchor){
+      return anchor.childNodes && anchor.childNodes[0].src;
+    },
+
+    /**
      * Returns an array of image urls from anchor tag collection
      */
     getAllImageURLs: function() {
-      var index, anchor, url, urlArr = [],
+      var index, anchor, url,
         anchorCollection = this.getAllAnchorTags();
 
       for (index in anchorCollection) {
         anchor = anchorCollection[index];
         url = this.getParameterByName(anchor.href || '', this.imageQueryParam);
         if (url) {
-          urlArr.push(url);
+          this.urlCollection.push({
+            url: url,
+            base64: this.getBase64Image(anchor) || url
+          });
         }
       }
-
-      return urlArr;
     },
 
     /**
@@ -78,11 +86,14 @@ var api = (function() {
 
       count = count || this.defaultDownloadCount;
 
-      var index, image, allImages = this.getAllImageURLs();
-      for (index in allImages) {
-        image = allImages[index];
+      var index, imageObj;
+
+      this.getAllImageURLs();
+
+      for (index in this.urlCollection) {
+        imageObj = this.urlCollection[index];
         if (index < count) {
-          this.downloadImage(image);
+          this.downloadImage(imageObj.url);
         } else {
           break;
         }
