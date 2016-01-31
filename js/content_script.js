@@ -1,9 +1,15 @@
 // Listners
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    // Download Images
-    if (request.key === 'downloadImages') {
-      api.getImages();
+    switch (request.key) {
+      // Downloads images
+      case 'downloadImages':
+        api.getImages();
+        break;
+      // When extension opens  
+      case 'onExtensionOpen':
+        sendResponse(api.getAllImageURLs());
+        break;
     }
   });
 

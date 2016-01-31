@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "One click download of google image results",
-  "description": "Downloads images from a google image search result page.",
+  "name": "One click high resolution google image downloader",
+  "description": "Downloads high resolution images from a google image search result page.",
   "version": "1.0",
   "icons": {
     "48": "icons/icon48.png",
@@ -12,8 +12,8 @@
       "19": "icons/icon19.png",
       "38": "icons/icon38.png"
     },
-    "default_popup": "download.html",
-    "default_title": "One click download of google image results"
+    "default_popup": "extension.html",
+    "default_title": "One click high resolution google image downloader"
   },
   "content_scripts": [
     {
@@ -24,7 +24,7 @@
   ],
   "homepage_url": "https://github.com/shivrajrath",
   "background": {
-    "scripts": ["js/bootstrap.js"]
+    "scripts": ["js/extension_bootstrap.js"]
   },
   "permissions": ["tabs"]
 }

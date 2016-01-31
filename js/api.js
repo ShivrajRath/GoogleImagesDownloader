@@ -26,8 +26,8 @@ var api = (function() {
     /**
      * Returns the base64 image from an anchor tag
      */
-    getBase64Image: function(anchor){
-      return anchor.childNodes && anchor.childNodes[0].src;
+    getThumbnail: function(anchor){
+      return anchor.firstChild && anchor.firstChild.src;
     },
 
     /**
@@ -43,10 +43,12 @@ var api = (function() {
         if (url) {
           this.urlCollection.push({
             url: url,
-            base64: this.getBase64Image(anchor) || url
+            thumbnail: this.getThumbnail(anchor) || url
           });
         }
       }
+
+      return this.urlCollection;
     },
 
     /**

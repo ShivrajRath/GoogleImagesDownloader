@@ -6,11 +6,24 @@
   <style>
     html {
       width: 300px;
+      max-height: 900px;
     }
-
     body {
       font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
       font-size: 70%;
+    }
+    img{
+      width: 100%;
+    }
+    #imglist{
+      max-height: 400px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      text-align: center;
+    }
+    .thumbnail{
+      width: 90px;
+      float: left
     }
   </style>
 </head>
@@ -18,11 +31,12 @@
 <body>
   <p><strong>Google images downloader</strong></p>
   <em>Images could be copyright restricted. Kindly use it judiciously.</em>
-  <p>This extension only downloads the visible images. To download more images just scroll down and click the Download button again.</p>
+  <p>This extension only downloads the visible images on the search result page. To download more images just scroll down and click the extension again.</p>
   <p>Are you sure you want to download the high resolution images?</p>
+  <p id="imglist"></p>
   <input type="button" value="Download" id="btnYes">
   <input type="button" value="No" id="btnNo">
-  <script src="js/download.js"></script>
+  <script src="js/extension.js"></script>
 </body>
 
 </html>
