@@ -38,15 +38,48 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   /**
+   * Creates an image and binds events
+   */
+  function createImage(imgObj) {
+    var image = new Image();
+    var div;
+
+    image.onload = function() {
+      // Create an outer div
+      div = document.createElement('div');
+      div.className = 'thumbnail';
+
+      // Append image to the div
+      div.appendChild(image);
+
+      // Append the element to imglist el
+      document.getElementById('imglist').appendChild(div);
+    };
+    image.onerror = function() {
+      console.log('Error in loading ' + imgObj.thumbnail);
+    };
+    image.onclick = function() {
+      switch (image.parentElement.className) {
+        case 'thumbnail':
+          image.parentElement.className = 'thumbnail selected';
+          break;
+        case 'thumbnail selected':
+          image.parentElement.className = 'thumbnail';
+          break;
+      }
+    };
+    image.src = imgObj.thumbnail;
+  }
+
+  /**
    * Renders thumbnail on the extension html
    */
-  function renderThumbnails(){
+  function renderThumbnails() {
     var image, imgText = '';
-    for(var index in urlCollection){
+    for (var index in urlCollection) {
       image = urlCollection[index];
-      imgText += '<div class="thumbnail"><img src="'+image.thumbnail+'"></img></div>';
+      createImage(image);
     }
-    document.getElementById('imglist').innerHTML = imgText;
   }
 
   /**
@@ -55,15 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function init() {
     sendMessageToCS({
       key: 'onExtensionOpen'
-    }, function(imageArr){
+    }, function(imageArr) {
       urlCollection = imageArr;
       renderThumbnails();
-
-
-      document.getElementsByTagName('img').onerror = function () {
-        this.style.display = "none";
-      };
-
     });
   }
 

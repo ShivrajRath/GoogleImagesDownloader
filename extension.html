@@ -6,7 +6,7 @@
   <style>
     html {
       width: 300px;
-      max-height: 900px;
+      max-height:1000px;
     }
     body {
       font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -16,14 +16,25 @@
       width: 100%;
     }
     #imglist{
-      max-height: 400px;
+      max-height: 350px;
       overflow-x: hidden;
       overflow-y: auto;
-      text-align: center;
     }
     .thumbnail{
-      width: 90px;
-      float: left
+      width: 50%;
+      margin: 0 auto;
+      padding: 2px 0;
+      position: relative;
+    }
+    .thumbnail.selected{
+      width: 40%;
+    }
+    .thumbnail.selected:after{
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      bottom: 0; left: 0;
+      background: url('icons/check16.png') no-repeat;
     }
   </style>
 </head>
@@ -32,10 +43,13 @@
   <p><strong>Google images downloader</strong></p>
   <em>Images could be copyright restricted. Kindly use it judiciously.</em>
   <p>This extension only downloads the visible images on the search result page. To download more images just scroll down and click the extension again.</p>
-  <p>Are you sure you want to download the high resolution images?</p>
   <p id="imglist"></p>
-  <input type="button" value="Download" id="btnYes">
-  <input type="button" value="No" id="btnNo">
+  <p>Are you sure you want to download the high resolution images?</p>
+  <p>
+    <input type="button" value="Download All" id="btnYes">
+    <input type="button" value="Download Selected" id="btnYes">
+    <input type="button" value="Close" id="btnNo">
+  </p>
   <script src="js/extension.js"></script>
 </body>
 
