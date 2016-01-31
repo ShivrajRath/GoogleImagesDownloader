@@ -6,7 +6,11 @@ chrome.runtime.onMessage.addListener(
       case 'downloadImages':
         api.getImages();
         break;
-      // When extension opens  
+      // Downloads selected images
+      case 'downloadSelectedImages':
+        api.getSelectedImages(request.value);
+        break;
+      // When extension opens
       case 'onExtensionOpen':
         sendResponse(api.getAllImageURLs());
         break;

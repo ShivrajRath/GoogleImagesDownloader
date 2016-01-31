@@ -15,6 +15,13 @@
     img{
       width: 100%;
     }
+    img.selected{
+      border-left: 5px solid #24B72E;
+      border-top: 5px solid #24B72E;
+      border-right: 5px solid #E3E61B;
+      border-bottom: 5px solid #E3E61B;
+      margin-left: -5px;
+    }
     #imglist{
       max-height: 350px;
       overflow-x: hidden;
@@ -26,16 +33,6 @@
       padding: 2px 0;
       position: relative;
     }
-    .thumbnail.selected{
-      width: 40%;
-    }
-    .thumbnail.selected:after{
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      bottom: 0; left: 0;
-      background: url('icons/check16.png') no-repeat;
-    }
   </style>
 </head>
 
@@ -46,9 +43,9 @@
   <p id="imglist"></p>
   <p>Are you sure you want to download the high resolution images?</p>
   <p>
-    <input type="button" value="Download All" id="btnYes">
-    <input type="button" value="Download Selected" id="btnYes">
-    <input type="button" value="Close" id="btnNo">
+    <input type="button" value="Download All" id="btnDownAll">
+    <input type="button" value="Download Selected" id="btnDownSelected">
+    <input type="button" value="Close" id="btnClose">
   </p>
   <script src="js/extension.js"></script>
 </body>

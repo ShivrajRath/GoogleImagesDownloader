@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  function downloadSelectedImages(){
+    sendMessageToCS({
+      key: 'downloadSelectedImages',
+      value: urlCollection
+    });
+  }
+
   /**
    * Creates an image and binds events
    */
@@ -59,14 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Error in loading ' + imgObj.thumbnail);
     };
     image.onclick = function() {
-      switch (image.parentElement.className) {
-        case 'thumbnail':
-          image.parentElement.className = 'thumbnail selected';
+      switch (image.className) {
+        case 'selected':
+          image.setAttribute('class', '');
           break;
-        case 'thumbnail selected':
-          image.parentElement.className = 'thumbnail';
+        case '':
+          image.setAttribute('class', 'selected');
           break;
       }
+      imgObj.selected = !imgObj.selected;
     };
     image.src = imgObj.thumbnail;
   }
@@ -86,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
    * On popup open
    */
   function init() {
+    urlCollection = [];
     sendMessageToCS({
       key: 'onExtensionOpen'
     }, function(imageArr) {
@@ -97,10 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
   init();
 
   /****************************** EVENTS *****************************/
-  document.getElementById('btnYes').addEventListener('click', function() {
+  document.getElementById('btnDownAll').addEventListener('click', function() {
     downloadImages();
   });
-  document.getElementById('btnNo').addEventListener('click', function() {
+
+  document.getElementById('btnDownSelected').addEventListener('click', function() {
+    downloadSelectedImages();
+  });
+
+  document.getElementById('btnClose').addEventListener('click', function() {
     closePopup();
   });
 

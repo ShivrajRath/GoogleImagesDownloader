@@ -17,7 +17,6 @@ var api = (function() {
 
     /**
      * Gets all the anchor tags on a page
-     * @return {[type]} [description]
      */
     getAllAnchorTags: function() {
       return document.getElementsByTagName('a') || [];
@@ -26,7 +25,7 @@ var api = (function() {
     /**
      * Returns the base64 image from an anchor tag
      */
-    getThumbnail: function(anchor){
+    getThumbnail: function(anchor) {
       return anchor.firstChild && anchor.firstChild.src;
     },
 
@@ -84,22 +83,24 @@ var api = (function() {
     /**
      * Get all images and download it one by one
      */
-    getImages: function(count) {
-
-      count = count || this.defaultDownloadCount;
-
+    getImages: function() {
       var index, imageObj;
-
       this.getAllImageURLs();
-
       for (index in this.urlCollection) {
         imageObj = this.urlCollection[index];
-        if (index < count) {
-          this.downloadImage(imageObj.url);
-        } else {
-          break;
-        }
+        this.downloadImage(imageObj.url);
+      }
+    },
 
+    /**
+     * Get imgages from a source
+     */
+    getSelectedImages: function(imgArr) {
+      for (var index in imgArr) {
+        imageObj = imgArr[index];
+        if (imageObj.selected) {
+          this.downloadImage(imageObj.url);
+        }
       }
     }
 
