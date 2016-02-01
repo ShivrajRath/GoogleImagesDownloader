@@ -36,6 +36,9 @@ var api = (function() {
       var index, anchor, url,
         anchorCollection = this.getAllAnchorTags();
 
+      // Reset the collection  
+      this.urlCollection = [];
+
       for (index in anchorCollection) {
         anchor = anchorCollection[index];
         url = this.getParameterByName(anchor.href || '', this.imageQueryParam);
