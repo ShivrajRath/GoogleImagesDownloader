@@ -106,9 +106,9 @@ document.addEventListener('DOMContentLoaded', function() {
   init();
 
   /****************************** EVENTS *****************************/
-  document.getElementById('btnDownAll').addEventListener('click', function() {
-    downloadImages();
-  });
+  // document.getElementById('btnDownAll').addEventListener('click', function() {
+  //   downloadImages();
+  // });
 
   document.getElementById('btnDownSelected').addEventListener('click', function() {
     downloadSelectedImages();
