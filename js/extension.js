@@ -49,15 +49,17 @@ document.addEventListener('DOMContentLoaded', function() {
    */
   function createImage(imgObj) {
     var image = new Image();
-    var div;
+    var div, span;
 
     image.onload = function() {
       // Create an outer div
       div = document.createElement('div');
       div.className = 'thumbnail';
+      span = document.createElement('span');
 
       // Append image to the div
       div.appendChild(image);
+      div.appendChild(span);
 
       // Append the element to imglist el
       document.getElementById('imglist').appendChild(div);
@@ -76,6 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       imgObj.selected = !imgObj.selected;
     };
+    image.addEventListener('load', function(){
+        if(imgObj.resolution){
+            span.innerHTML = imgObj.resolution;
+        }
+    });
     image.src = imgObj.thumbnail;
   }
 

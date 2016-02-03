@@ -29,6 +29,11 @@ var api = (function() {
       return anchor.firstChild && anchor.firstChild.src;
     },
 
+    getResolution: function(anchor){
+      var anchorText = anchor.textContent;
+      return anchorText.match(/\d.*\d/) && anchorText.match(/\d.*\d/)[0];
+    },
+
     /**
      * Returns an array of image urls from anchor tag collection
      */
@@ -36,7 +41,7 @@ var api = (function() {
       var index, anchor, url,
         anchorCollection = this.getAllAnchorTags();
 
-      // Reset the collection  
+      // Reset the collection
       this.urlCollection = [];
 
       for (index in anchorCollection) {
@@ -45,7 +50,8 @@ var api = (function() {
         if (url) {
           this.urlCollection.push({
             url: url,
-            thumbnail: this.getThumbnail(anchor) || url
+            thumbnail: this.getThumbnail(anchor) || url,
+            resolution: this.getResolution(anchor)
           });
         }
       }

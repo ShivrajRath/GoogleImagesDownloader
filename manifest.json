@@ -1,12 +1,13 @@
 {
   "manifest_version": 2,
   "name": "One click high resolution google image downloader",
-  "description": "Downloads high resolution images from a google image search result page.",
   "version": "1.0",
+  "description": "Downloads high resolution images from a google image search result page.",
   "icons": {
     "48": "icons/icon48.png",
     "24": "icons/icon24.png"
   },
+  "author": "Shivraj Rath",
   "page_action": {
     "default_icon": {
       "19": "icons/icon19.png",
