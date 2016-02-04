@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "One click high resolution google image downloader",
+  "name": "Best resolution Google image downloader",
   "version": "1.0",
-  "description": "Downloads high resolution images from a google image search result page.",
+  "description": "Downloads highest possible resolution images from a google image search result page. Supports bulk download of images as well",
   "icons": {
     "48": "icons/icon48.png",
     "24": "icons/icon24.png"
@@ -14,7 +14,7 @@
       "38": "icons/icon38.png"
     },
     "default_popup": "extension.html",
-    "default_title": "One click high resolution google image downloader"
+    "default_title": "Best resolution Google image downloader"
   },
   "content_scripts": [
     {

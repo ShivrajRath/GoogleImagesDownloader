@@ -1,6 +1,6 @@
 ### GOOGLE IMAGES DOWNLOADER
 
-This is an chrome extension to easily download google image search results in high resolution.
+This is an chrome extension to easily download highest possible resolution images from a google image search result page. Supports bulk download of images as well.
 
 #### Steps to download
 1. Open google image search page
@@ -8,6 +8,10 @@ This is an chrome extension to easily download google image search results in hi
 3. Select the images you want to download
 4. Click on download selected button
 5. If you scroll to see more images, close the extension popup and open again
+
+#### To Do
+1. Sorting based on resolution
+2. Upload to dropbox/google drive
 
 #### Change log
 

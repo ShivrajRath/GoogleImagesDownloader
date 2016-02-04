@@ -31,7 +31,7 @@ var api = (function() {
 
     getResolution: function(anchor){
       var anchorText = anchor.textContent;
-      return anchorText.match(/\d.*\d/) && anchorText.match(/\d.*\d/)[0];
+      return anchorText.match(/\d.*\d\s/) && anchorText.match(/\d.*\d\s/)[0];
     },
 
     /**
