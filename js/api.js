@@ -1,5 +1,6 @@
 // Downloads high resolution images from google image search page
 var api = (function() {
+  'use strict';
   return {
     imageQueryParam: 'imgurl',
     defaultDownloadCount: 5,
@@ -9,10 +10,10 @@ var api = (function() {
      * Pick a parameter from a url
      */
     getParameterByName: function(url, name) {
-      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
         results = regex.exec(url);
-      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     },
 
     /**
@@ -105,6 +106,7 @@ var api = (function() {
      * Get imgages from a source
      */
     getSelectedImages: function(imgArr) {
+      var imageObj;
       for (var index in imgArr) {
         imageObj = imgArr[index];
         if (imageObj.selected) {

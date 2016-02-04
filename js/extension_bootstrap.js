@@ -10,9 +10,9 @@
 
   // Listeners from content script
   chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
+    function(request) {
       // If the page has downloadable icons then show the icon
-      if (request.key == 'showIcon' && request.value) {
+      if (request.key === 'showIcon' && request.value) {
         chrome.pageAction.show(tabID);
       }
     });
