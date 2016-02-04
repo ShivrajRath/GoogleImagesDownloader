@@ -18,7 +18,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*/*search?q*"],
+      "matches": ["*://*/*search?*"],
       "js": ["js/api.js", "js/content_script.js"],
       "run_at": "document_idle"
     }
