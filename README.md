@@ -19,6 +19,8 @@ This is an chrome extension to easily download highest possible resolution image
 
 #### Credits
 You can find the source code here: https://github.com/ShivrajRath/GoogleImagesDownloader
+Tweet at: @ShivrajRath
+Webpage at: http://novicelab.org
 
 #### License
 
