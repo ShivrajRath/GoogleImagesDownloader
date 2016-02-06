@@ -1,9 +1,10 @@
 {
   "manifest_version": 2,
   "name": "Best resolution Google image downloader",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Downloads highest possible resolution images from a google image search result page. Supports bulk download of images as well",
   "icons": {
+    "128": "icons/logo.png",
     "48": "icons/icon48.png",
     "24": "icons/icon24.png"
   },
