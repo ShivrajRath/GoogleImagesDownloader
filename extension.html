@@ -21,7 +21,7 @@
       padding: 10px;
     }
     #imglist{
-      max-height: 350px;
+      max-height: 340px;
       overflow-x: hidden;
       overflow-y: auto;
     }
@@ -36,7 +36,6 @@
 
 <body>
   <p><strong>Google images downloader</strong></p>
-  <em>Images could be copyright restricted. Kindly use it judiciously.</em>
   <p>This extension only downloads the visible images on the search result page. To download more images just scroll down and click the extension again.</p>
   <p id="imglist"></p>
   <p>Kindly select the images and click <em>'Download Selected'</em> button to download the high resolution images.</p>
@@ -44,6 +43,9 @@
     <!-- <input type="button" value="Download All" id="btnDownAll"> -->
     <input type="button" value="Download Selected" id="btnDownSelected">
     <input type="button" value="Close" id="btnClose">
+  </p>
+  <p>
+    <small>Images could be copyright restricted. It is important to understand that just picking any image from the search results and using it the way you want can result in copyright violations. We won't be responsible in any such dispute.</small>
   </p>
   <script src="js/extension.js"></script>
 </body>

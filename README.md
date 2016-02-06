@@ -23,6 +23,8 @@ You can find the source code here: https://github.com/ShivrajRath/GoogleImagesDo
 Tweet at: @ShivrajRath
 Webpage at: http://novicelab.org
 
+Images could be copyright restricted. It is important to understand that just picking any image from the search results and using it the way you want can result in copyright violations. We won't be responsible in any such dispute.
+
 #### License
 
 The MIT License (MIT)
