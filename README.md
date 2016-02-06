@@ -1,6 +1,7 @@
 ### GOOGLE IMAGES DOWNLOADER
 
 This is an chrome extension to easily download highest possible resolution images from a google image search result page. Supports bulk download of images as well.
+Download at: https://chrome.google.com/webstore/detail/best-resolution-google-im/behhfbfbcjncjkefabpaehofpkolnjnn/related
 
 #### Steps to download
 1. Open google image search page

@@ -9,10 +9,7 @@
   },
   "author": "Shivraj Rath",
   "page_action": {
-    "default_icon": {
-      "19": "icons/icon19.png",
-      "38": "icons/icon38.png"
-    },
+    "default_icon": "icons/logo.png",
     "default_popup": "extension.html",
     "default_title": "Best resolution Google image downloader"
   },
@@ -26,6 +23,10 @@
   "homepage_url": "https://github.com/shivrajrath",
   "background": {
     "scripts": ["js/extension_bootstrap.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
   },
   "permissions": ["tabs"]
 }
